@@ -48,25 +48,7 @@ public final class AccessPreferencesNullValuesTest extends
 		} catch (NullPointerException e) {
 			// CAUSE getBoolean(String arg0, ***boolean*** arg1) -->unboxes null
 		}
-		// Boolean GET : default value NON NULL - will give back the
-		// DEFAULT_BOOLEAN given // yes cause does not exist
-		assertEquals(DEFAULT_BOOLEAN,
-			prefs.getBoolean(BOOLEAN_KEY, DEFAULT_BOOLEAN));
-		// try {
-		// I get no CCE when I put null as Boolean and retrieve String
-		// the key simply does not exist
-		assertFalse(prefs.contains(BOOLEAN_KEY)); // NOT CONTAINED !
-		assertEquals(DEFAULT_STRING,
-			prefs.getString(BOOLEAN_KEY, DEFAULT_STRING));
-		// I was getting the CCE cause I had a call :
-		// AccessPreferences.put(ctx, BOOLEAN_KEY, DEFAULT_BOOLEAN);
-		// in AccessPreferencesBooleanTest which was putting a boolean !
-		// fail("Expected CCE");
-		// } catch (ClassCastException e) {
-		// java.lang.ClassCastException: java.lang.Boolean
-		// at android.app.ContextImpl$SharedPreferencesImpl.
-		// getString(ContextImpl.java:2699)
-		// }
+		assertFalse(prefs.contains(BOOLEAN_KEY)); // key NOT CONTAINED - period
 	}
 
 	/**

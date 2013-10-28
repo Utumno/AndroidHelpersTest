@@ -6,9 +6,6 @@ import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import android.test.AndroidTestCase;
 
-import gr.uoa.di.android.helpers.AccessPreferences;
-
-import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.Set;
 
@@ -44,13 +41,17 @@ abstract class AccessPreferencesTest extends AndroidTestCase {
 
 	@Override
 	protected void tearDown() throws Exception {
-		// ugly but so so true
-		Field f = AccessPreferences.class.getDeclaredField("prefs");
-		f.setAccessible(true);
-		// f.set(null, null); // no use
-		final SharedPreferences sp = (SharedPreferences) f.get(null);
-		if (sp != null) sp.edit().clear().commit(); // TODO : how does this
-		// behave with null keys ?
+		// // ugly but so so true - WELL NO !
+		// Field f = AccessPreferences.class.getDeclaredField("prefs");
+		// f.setAccessible(true);
+		// // f.set(null, null); // no use
+		// final SharedPreferences sp = (SharedPreferences) f.get(null);
+		// if (sp != null) sp.edit().clear().commit();
+		// I only have to clear the preferences via an editor - the
+		// SharedPreferences are a singleton in the context of a single Context
+		// so no need to access them via AccessPreferences and no need to
+		// nullify the field in AccessPreferences [ie call f.set(null, null)] -
+		// as the reference to the singleton stays valid - apparently
 		if (ed != null) ed.clear().commit();
 		super.tearDown();
 	}
