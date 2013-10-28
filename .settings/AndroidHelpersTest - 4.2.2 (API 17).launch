@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.android.ide.eclipse.adt.junit.launchConfigurationType">
 <stringAttribute key="bad_container_name" value="android:targetPackage=&quot;gr.uoa.di.android.helpers.test"/>
-<stringAttribute key="com.android.ide.eclipse.adt.avd" value="_tablet"/>
+<stringAttribute key="com.android.ide.eclipse.adt.avd" value="emulator_android_4.2.2"/>
 <stringAttribute key="com.android.ide.eclipse.adt.commandline" value=""/>
 <intAttribute key="com.android.ide.eclipse.adt.delay" value="0"/>
 <stringAttribute key="com.android.ide.eclipse.adt.instrumentation" value="android.test.InstrumentationTestRunner"/>
