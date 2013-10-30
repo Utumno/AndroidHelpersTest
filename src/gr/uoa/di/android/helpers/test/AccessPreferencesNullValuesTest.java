@@ -96,7 +96,6 @@ public final class AccessPreferencesNullValuesTest extends
 		assertEquals(DEFAULT_STRING, s);
 	}
 
-	// TODO : test null keys in BOOLEAN
 	// =========================================================================
 	// String, Set<String>
 	// =========================================================================

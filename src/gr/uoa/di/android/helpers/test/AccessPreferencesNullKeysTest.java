@@ -1,5 +1,7 @@
 package gr.uoa.di.android.helpers.test;
 
+import gr.uoa.di.android.helpers.AccessPreferences;
+
 public final class AccessPreferencesNullKeysTest extends AccessPreferencesTest {
 
 	private static final String NULL_KEY = null;
@@ -64,5 +66,67 @@ public final class AccessPreferencesNullKeysTest extends AccessPreferencesTest {
 		} catch (ClassCastException e) {
 			// key : null --> value : Boolean
 		}
+	}
+
+	// =========================================================================
+	// Access preferences null keys - should throw NPE
+	// =========================================================================
+	public void testAPNullKeys() {
+		try {
+			AccessPreferences.put(ctx, NULL_KEY, null);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.put(ctx, NULL_KEY, DEFAULT_STRING);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.put(ctx, NULL_KEY, DEFAULT_BOOLEAN);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.put(ctx, NULL_KEY, DEFAULT_INTEGER);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.put(ctx, NULL_KEY, DEFAULT_FLOAT);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.put(ctx, NULL_KEY, DEFAULT_LONG);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.put(ctx, NULL_KEY, DEFAULT_STRING_SET);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.get(ctx, NULL_KEY, null);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.get(ctx, NULL_KEY, DEFAULT_STRING);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.get(ctx, NULL_KEY, DEFAULT_BOOLEAN);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.get(ctx, NULL_KEY, DEFAULT_INTEGER);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.get(ctx, NULL_KEY, DEFAULT_FLOAT);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.get(ctx, NULL_KEY, DEFAULT_LONG);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
+		try {
+			AccessPreferences.get(ctx, NULL_KEY, DEFAULT_STRING_SET);
+			fail("Expected NPE");
+		} catch (NullPointerException e) {}
 	}
 }
